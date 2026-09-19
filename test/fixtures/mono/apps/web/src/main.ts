@@ -1,0 +1,15 @@
+import { Button } from '@mono/ui';
+import '@mono/ui/styles/button.scss';
+import { api } from '@/lib';
+import lib from '~lib';
+import fs from 'node:fs';
+import { debounce } from 'lodash/debounce';
+import path from 'path';
+const Home = () => import('./pages/Home');
+const legacy = require('./lib/legacy.cjs');
+// import commented from 'commented-out';
+const s = "import str from 'in-a-string'";
+const t = `template ${require('./lib/in-template')} text`;
+import unknownPkg from 'left-pad';
+import missing from './does-not-exist';
+export { api, lib, fs, debounce, path, Home, legacy, s, t, unknownPkg, missing, Button };

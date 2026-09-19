@@ -1,0 +1,5 @@
+{
+  // comments are fine
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": { "strict": true, },
+}

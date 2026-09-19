@@ -1,0 +1,1 @@
+{ "name": "@mono/ui", "main": "dist/index.js", "exports": { ".": "./dist/index.js", "./styles/*": "./src/styles/*" }, "peerDependencies": { "react": "^18" } }

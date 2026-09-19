@@ -1,0 +1,9 @@
+[project]
+name = "pyapp"
+description = "A thing with words"
+dependencies = [
+  "requests>=2.0",
+  "PyYAML",
+]
+[project.optional-dependencies]
+dev = ["pytest>=7"]

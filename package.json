@@ -1,0 +1,61 @@
+{
+  "name": "jpark",
+  "version": "0.1.0",
+  "description": "\"It's a UNIX system! I know this!\" — a 3D, Jurassic Park / FSN-style fly-through of any codebase: file tree as a landscape, imports as ballistic arcs, external dependencies as satellites.",
+  "author": "Zeb Lawrence",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZebLawrence/jpark.git"
+  },
+  "homepage": "https://github.com/ZebLawrence/jpark#readme",
+  "bugs": {
+    "url": "https://github.com/ZebLawrence/jpark/issues"
+  },
+  "type": "module",
+  "bin": {
+    "jpark": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --watch",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p src/viewer/tsconfig.json",
+    "test": "node build.mjs && node --test test/*.test.mjs",
+    "start": "node dist/cli.js",
+    "prepublishOnly": "npm run typecheck && npm test"
+  },
+  "keywords": [
+    "visualization",
+    "dependency-graph",
+    "3d",
+    "three.js",
+    "fsn",
+    "jurassic-park",
+    "imports",
+    "codebase",
+    "architecture"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^26.6.2",
+    "@types/three": "^0.186.0",
+    "esbuild": "^0.28.2",
+    "three": "^0.186.0",
+    "typescript": "^7.0.2"
+  }
+}
