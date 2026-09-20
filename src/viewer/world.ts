@@ -281,8 +281,11 @@ export class World {
       fragmentShader: /* glsl */ `
         uniform vec3 uColor; uniform float uTime; varying float vY;
         void main() {
-          float a = pow(1.0 - vY, 2.6) * (0.13 + 0.04 * sin(uTime * 3.0 - vY * 30.0));
-          gl_FragColor = vec4(uColor, a);
+          // clamp before pow(): interpolation can push vY a hair past 1, and pow() of a
+          // negative base is a NaN that the bloom pass then smears over the whole frame
+          float t = clamp(1.0 - vY, 0.0, 1.0);
+          float a = pow(t, 2.6) * (0.13 + 0.04 * sin(uTime * 3.0 - vY * 30.0));
+          gl_FragColor = vec4(uColor, clamp(a, 0.0, 1.0));
         }`,
     });
     const mesh = new Mesh(geo, mat);
